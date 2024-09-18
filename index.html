@@ -11,8 +11,8 @@
     <title>Retro Forum</title>
 </head>
 
-<body class="container mx-auto border">
-    <header class="my-3">
+<body class="container mx-auto">
+    <header class="my-5">
         <div class="navbar bg-base-100 flex justify-between">
             <div class="navbar-start">
                 <a class="btn btn-ghost text-3xl font-bold">RETRO</a>
@@ -65,8 +65,50 @@
         </div>
     </header>
 
-    <main>
-        <p>this is main</p>
+    <main class="mt-5">
+        <!-- Hero Section -->
+        <section class="text-white">
+            <div class="card lg:card-side min-h-[50vh] rounded-3xl bg-no-repeat bg-cover bg-sky-950 p-20"
+                style="background-image: url(images/bgbanner.png);">
+                <div class="flex justify-around w-full">
+                    <div class="flex justify-center items-center">
+                        <div class="space-y-5">
+                            <h1 class="text-6xl font-bold">Welcome to the <br> <span class="bg-gradient-to-r from-info to-primary bg-clip-text text-transparent">ReTro</span> Forum</h1>
+
+                            <p class="text-gray-400">Share your favorite opinion and win and wp forum coffee mug!</p>
+
+                            <label class="input input-bordered flex items-center gap-2 pr-0 rounded-3xl text-black">
+                                <input type="text" class="grow" placeholder="Search" />
+                                <button class="btn bg-blue-500 px-6 text-white rounded-full">Search</button>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center items-center">
+                        <div class="card bg-base-100 w-96 shadow-xl text-black">
+                            <div class="card-body">
+                                <div class="flex justify-between">
+                                    <span>Registered Users</span>
+                                    <span>89</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Forum</span>
+                                    <span>45</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Topics</span>
+                                    <span>26</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Replies</span>
+                                    <span>99</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
