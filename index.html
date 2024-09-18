@@ -13,11 +13,12 @@
 
 <body class="container mx-auto border">
     <header class="my-3">
-        <div class="navbar bg-base-100">
+        <div class="navbar bg-base-100 flex justify-between">
             <div class="navbar-start">
                 <a class="btn btn-ghost text-3xl font-bold">RETRO</a>
             </div>
-            <div class="navbar-end space-x-4">
+
+            <div class="navbar-end space-x-4 hidden lg:flex">
                 <div class="flex space-x-2">
                     <p class="tooltip tooltip-bottom" data-tip="Home">
                         <i class="fa-solid fa-house border p-4 rounded-full bg-slate-100"></i>
@@ -33,6 +34,33 @@
                     </p>
                 </div>
                 <a class="btn bg-blue-500 text-white rounded-3xl px-9">Sign In</a>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="dropdown dropdown-bottom dropdown-end lg:hidden">
+                <div tabindex="0" role="button" class="btn btn-sm bg-blue-500 text-white m-1">Menu</div>
+                <!-- <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                    <li><a>Item 1</a></li>
+                    <li><a>Item 2</a></li>
+                </ul> -->
+
+                <div tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                    <div class="flex justify-between space-x-2">
+                        <p class="tooltip tooltip-bottom" data-tip="Home">
+                            <i class="fa-solid fa-house border p-2 rounded-full bg-slate-100"></i>
+                        </p>
+                        <p class="tooltip tooltip-bottom" data-tip="Write Post">
+                            <i class="fa-solid fa-pen border p-2 rounded-full bg-slate-100"></i>
+                        </p>
+                        <p class="tooltip tooltip-bottom" data-tip="Account">
+                            <i class="fa-solid fa-user-plus border p-2 rounded-full bg-slate-100"></i>
+                        </p>
+                        <p class="tooltip tooltip-bottom" data-tip="Bookmark">
+                            <i class="fa-solid fa-flag border p-2 rounded-full bg-slate-100"></i>
+                        </p>
+                    </div>
+                    <a class="btn btn-sm bg-blue-500 text-white rounded-3xl mt-3">Sign In</a>
+                </div>
             </div>
         </div>
     </header>
