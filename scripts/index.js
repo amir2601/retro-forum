@@ -1,10 +1,10 @@
-const loadPost = async () => {
-    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts`);
+let posts;
+
+const loadPost = async (searchInput = 'coding') => {
+    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchInput}`);
     const data = await res.json();
-    const posts = data.posts;
+    posts = data.posts;
     displayPost(posts);
-    console.log(posts);
-    
 };
 
 loadPost();
@@ -14,9 +14,17 @@ loadPost();
 const postContainer = document.getElementById('post-container');
 
 const displayPost = (posts) => {
+
+    if (posts.length <= 0) {
+        postContainer.innerHTML = `
+            <p class="text-3xl text-red-500">No posts found! <br>
+                    Please search again.</p>
+        `
+    }
+    
     posts.forEach(post => {
         const postCard = document.createElement('div');
-        
+
         const activeClass = post.isActive ? 'bg-yellow-400' : 'bg-red-600';
 
         postCard.innerHTML = `
@@ -25,7 +33,7 @@ const displayPost = (posts) => {
                 <!-- avatar -->
                 <div class="avatar">
                     <div class="w-20 h-20 rounded-lg">
-                        <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                        <img src="${post.image}" />
                     </div>
 
                     <div id="active" class="${activeClass} w-3 h-3 rounded-full absolute left-[72px] -top-1"></div>
@@ -74,17 +82,48 @@ const displayPost = (posts) => {
     });
 };
 
-// display mark as read
+// Search Post
 
-const readPostBtn = document.getElementsByClassName('read-post-btn');
+const searchPost = () => {
+    const searchField = document.getElementById('search-field');
+    const searchText = searchField.value;
 
-let readPosts = [];
-
-function displayReadPost(id) {
-    console.log('hello');
-    console.log(id);
+    loadPost(searchText);
+    searchField.value = '';
+    postContainer.innerHTML = '';
 };
 
-console.log(readPosts);
+// display mark as read
+const readPostContainer = document.getElementById('read-container');
+let markAsReadArr = [];
 
+const displayReadPost = (id) => {
+    const matchedItem = markAsReadArr.find(item => item.id == id);
 
+    if (matchedItem) {
+        return alert('Already added')
+    };
+
+    let readPost = posts.find(post => post.id == id);
+    markAsReadArr.push(readPost);
+
+    readPostContainer.innerHTML = '';
+
+    markAsReadArr.forEach(post => {
+        const readPostCard = document.createElement('div');
+        readPostCard.innerHTML = `
+            <div class="flex justify-between gap-4 bg-white p-4 text-sm md:text-base">
+                <div>
+                    <p class="font-semibold">${post.title}</p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-regular fa-eye"></i>
+                    <p>${post.view_count}</p>
+                </div>
+            </div>
+        `
+        readPostContainer.appendChild(readPostCard);
+
+    })
+
+};
