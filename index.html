@@ -34,7 +34,7 @@
                         <i class="fa-solid fa-flag border p-4 rounded-full bg-slate-100"></i>
                     </p>
                 </div>
-                <a class="btn bg-blue-500 text-white rounded-3xl px-9">Sign In</a>
+                <a class="btn bg-blue-500 text-white rounded-3xl px-9 hover:text-black">Sign In</a>
             </div>
 
             <!-- Mobile Menu -->
@@ -68,13 +68,13 @@
 
     <main class="mt-5">
         <!-- Hero Section -->
-        <section class="text-white">
-            <div class="card lg:card-side min-h-[50vh] rounded-3xl bg-no-repeat bg-cover bg-sky-950 md:p-20"
+        <section class="text-white px-1">
+            <div class="card lg:card-side min-h-[50vh] rounded-3xl bg-no-repeat bg-cover bg-gray-900 md:p-20"
                 style="background-image: url(images/bgbanner.png);">
                 <div class="flex flex-col md:flex-row justify-around w-full">
                     <div class="flex justify-center items-center p-10">
                         <div class="space-y-5">
-                            <h1 class="text-3xl md:text-6xl font-bold">Welcome to the <br> <span
+                            <h1 class="text-3xl md:text-5xl xl:text-6xl font-bold">Welcome to the <br> <span
                                     class="bg-gradient-to-r from-info to-primary bg-clip-text text-transparent">ReTro</span>
                                 Forum</h1>
 
@@ -82,12 +82,13 @@
 
                             <label class="input input-bordered flex items-center gap-2 pr-0 rounded-3xl text-black">
                                 <input id="search-field" type="text" class="grow" placeholder="Search" />
-                                <button onclick="searchPost()" class="btn bg-blue-500 px-6 text-white rounded-full">Search</button>
+                                <button onclick="searchPost()"
+                                    class="btn bg-blue-500 px-6 text-white rounded-full hover:text-black">Search</button>
                             </label>
                         </div>
                     </div>
 
-                    <div class="flex justify-center items-center pb-10">
+                    <div class="flex justify-center items-center pb-10 md:pb-0">
                         <div class="card bg-base-100 w-5/6 md:w-96 shadow-xl text-black">
                             <div class="card-body">
                                 <div class="flex justify-between">
@@ -206,6 +207,66 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Second Banner -->
+        <section class="px-1">
+            <div
+                class="card lg:card-side bg-gray-900 shadow-xl p-5 md:p-10 mt-10 text-white flex justify-between gap-10">
+                <div class="flex items-center md:pl-20">
+                    <div class="space-y-5">
+                        <h2 class="text-3xl md:text-5xl font-bold">Join Our Forum</h2>
+                        <p class="text-gray-400 text-sm md:text-base">Share your favorite opinion and win and wp forum
+                            coffee mug! <br> Yes, you can run unit tests and view the results directly within the app.
+                        </p>
+                        <button
+                            class="py-2 px-4 md:py-3 md:px-6 rounded-full bg-blue-500 text-white hover:bg-stone-300 hover:text-black duration-300">Registered
+                            Now</button>
+                    </div>
+                </div>
+                <figure>
+                    <img src="images/joinforum.png" alt="Album" />
+                </figure>
+            </div>
+        </section>
+
+        <!-- Latest Post -->
+        <section class="text-center">
+            <div class="mt-20 mb-14 text-center space-y-5">
+                <H1 class="text-3xl md:text-5xl font-bold">Let's Discuss</H1>
+                <p>Yes, you can run unit tests and view the results directly within the app. <br> The integrated testing
+                    features allow for a streamlined .</p>
+            </div>
+
+            <!-- Latest Post Cards -->
+            <div id="latest-post-container" class="grid md:grid-cols-3 gap-20">
+                <!-- <div class="rounded-xl bg-base-100 shadow-xl border border-gray-300">
+                    <figure class="px-5 pt-5">
+                        <img src="https://i.ibb.co/hC2CtK2/pexels-monstera-production-7412067.jpg"
+                            alt="Shoes" class="rounded-xl" />
+                    </figure>
+                    <div class="p-6 text-start">
+                        <div class="space-y-4">
+                            <p class="text-gray-500">29 January 2024</p>
+
+                            <p class="text-lg font-bold">What will a mars habitat force that impact in our daily life!!!</p>
+
+                            <p class="text-gray-500">Yes, you can run unit tests and view the results directly within the app.</p>
+
+                            <p class="border border-dashed"></p>
+
+                            <div class="flex gap-4">
+                                <img class="w-12 rounded-full" src="https://i.ibb.co/0QRxkd5/pexels-jan-kop-iva-3525908.jpg" alt="">
+
+                                <div>
+                                    <p class="font-semibold">Cameron Williamson</p>
+                                    <p class="text-sm text-gray-400">Unknown</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
             </div>
         </section>
     </main>

@@ -124,6 +124,60 @@ const displayReadPost = (id) => {
         `
         readPostContainer.appendChild(readPostCard);
 
-    })
-
+    });
 };
+
+// Display latest posts
+
+const loadLatestPost = async () => {
+    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/latest-posts`);
+    const data = await res.json();
+    const latestsPost = data;
+    displayLatestPosts(latestsPost);
+
+    console.log(latestsPost);  
+};
+
+const latestPostsContainer = document.getElementById('latest-post-container');
+
+const displayLatestPosts = (latestsPost) => {
+
+    latestsPost.forEach(post => {
+        const latestPostCard = document.createElement('div');
+
+        latestPostCard.innerHTML = `
+            <div class="rounded-xl bg-base-100 shadow-xl border border-gray-300">
+                <figure class="px-5 pt-5">
+                        <img src="${post.cover_image}"
+                            alt="Shoes" class="rounded-xl" />
+                </figure>
+                <div class="p-6 text-start">
+                    <div class="space-y-4">
+                        <p class="text-gray-500">${post.author
+.                            posted_date ? post.author
+.                            posted_date : 'No publish date'}</p>
+
+                        <p class="text-lg font-bold">${post.title}</p>
+
+                        <p class="text-gray-500">${post.description}</p>
+
+                        <p class="border border-dashed"></p>
+
+                        <div class="flex gap-4">
+                            <img class="w-12 rounded-full" src="${post.profile_image
+                            }" alt="">
+
+                            <div>
+                                <p class="font-semibold">${post.author.name}</p>
+                                <p class="text-sm text-gray-400">${post.author.designation ? post.author.designation : 'Unknown'}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `
+        latestPostsContainer.appendChild(latestPostCard);
+    })
+}
+
+loadLatestPost();
